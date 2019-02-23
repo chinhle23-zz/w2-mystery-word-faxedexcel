@@ -78,7 +78,8 @@ def print_word(word, guesses):
     Prints 'word' to the screen displaying only letters in the list 'guesses' 
     and underscores as placeholders for letters not in the list
     """
-    correct_guess_list = [display_correct_letter(letter, guesses) # collection: 'guesses' here represents list of characters already guessed
+    correct_guess_list = [display_correct_letter(letter, guesses) # collection: 'guesses' here represents list 
+                                                                  # of characters already guessed
                           for letter in word] # iteration: 'word' here represents random word
     print(" ".join(correct_guess_list))
 
@@ -125,7 +126,8 @@ def mystery_word_game(a_file):
             if letter_guess in already_guessed_list:
                 letter_guess = verify_valid_letter(input(f"[{letter_guess}] already guessed. Try again: ")).upper()
 
-            # if the guessed letter is incorrect, let user know how many incorrect guesses they have left and tell user to guess again
+            # if the guessed letter is incorrect, let user know how many incorrect guesses they have left 
+            # and tell user to guess again
             elif letter_guess not in already_guessed_list and letter_guess not in random_word:
                 incorrect_guess_count += 1
                 already_guessed_list.append(letter_guess)
@@ -133,7 +135,8 @@ def mystery_word_game(a_file):
                 if incorrect_guess_count == max_guess:
                     print(f"Game Over. You lose! The word was: {random_word}")
                     
-                    # ask user if they want to again: if yes then exit inner while loop, otherwise exit both inner and outer while loops
+                    # ask user if they want to again: if yes then exit inner while loop,
+                    # otherwise exit both inner and outer while loops
                     go_again_answer = input(f"Do you want to go again (Y/N)? ").upper()
                     if go_again_answer == 'Y':
                         continue_round = False
@@ -154,7 +157,8 @@ def mystery_word_game(a_file):
                 if is_word_done(random_word, already_guessed_list):
                     print(f"Congratulations! You guessed the mystery word: {random_word}")
 
-                    # ask user if they want to again: if yes then exit inner while loop, otherwise exit both inner and outer while loops
+                    # ask user if they want to go again: 
+                    # if yes then exit inner while loop, otherwise exit both inner and outer while loops
                     go_again_answer = input(f"Do you want to go again (Y/N)? ").upper()
                     if go_again_answer == 'Y':
                         continue_round = False
