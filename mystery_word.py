@@ -6,8 +6,9 @@ def convert_to_list(a_file):
     """
     with open(a_file) as file:
         text = file.read()
-        # '.read()' reads character by character
-        # '.readline()' reads line by line
+        # '.read()' reads whole file (character by character)
+        # '.readlines()' reads whole file (line by line)
+        # '.readline()' reads one line (line by line each time method is called)
     all_words = []
     for word in text.split("\n"):
         if word != '':
@@ -57,7 +58,7 @@ def verify_valid_letter(a_str):
         # valid letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' + '-'
     invalid_guess = True
     while invalid_guess:
-        if a_str not in valid_letters:
+        if a_str not in valid_letters or a_str == "":
             a_str = input("Invalid letter! Please type a letter: ")
         else:
             invalid_guess = False
